@@ -75,21 +75,21 @@ export default {
   },
   generate: {
     fallback: true,
-    routes: generateRoutes,
+    // routes: generateRoutes,
   },
-  sitemap: {
-    hostname: '',
-    gzip: true,
-    defaults: {
-      changefreq: 'weekly',
-      priority: 1,
-      lastmod: new Date(),
-      lastmodrealtime: true,
-    },
-    exclude: [
-    ],
-    routes: generateRoutes,
-  },
+  // sitemap: {
+  //   hostname: '',
+  //   gzip: true,
+  //   defaults: {
+  //     changefreq: 'weekly',
+  //     priority: 1,
+  //     lastmod: new Date(),
+  //     lastmodrealtime: true,
+  //   },
+  //   exclude: [
+  //   ],
+  // routes: generateRoutes,
+  // },
   /* A
   ** Customize the progress-bar color
   */
@@ -138,7 +138,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     // 'nuxt-rfg-icon',
     '@nuxtjs/manifest',
     'nuxt-clipboard2',
