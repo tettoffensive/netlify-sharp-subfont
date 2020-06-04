@@ -1,0 +1,86 @@
+// Fonts
+$title-font: 'Source Serif Pro', $font-family-serif;
+$body-font: $font-family-sans-serif;
+$button-font: $font-family-sans-serif;
+
+body, html {
+  font-family: $body-font;
+}
+
+h1 {
+  font-family: $title-font;
+  font-weight: 750;
+}
+
+h2 {
+  font-family: $title-font;
+  font-weight: 620;
+}
+
+h3, h4, h5, h6 {
+  font-family: $body-font;
+  font-weight: 500;
+}
+
+$font-weights: (
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    620,
+    700,
+    750,
+    800,
+    900
+) !default;
+
+@each $weight in $font-weights {
+    .font-weight-#{$weight} {
+        font-weight: $weight !important;       
+    }
+}
+
+@mixin body-font($color:"") {
+  font-family: $body-font !important;
+  line-height: 1.5 !important;
+  @if $color != "" {
+    color: $color;
+  }
+}
+
+@mixin title-font($color:"") {
+  font-family: $title-font;
+  letter-spacing: 0.01em;
+  @if $color != "" {
+    color: $color;
+  }
+}
+
+@mixin icon-font($color:"") {
+  font-family: $button-font;
+  letter-spacing: 0px;
+  font-weight: bold;
+  @if $color != "" {
+    color: $color;
+  }
+}
+
+@mixin button-font($color:"") {
+  font-family: $button-font;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+  @if $color != "" {
+    color: $color;
+  }
+}
+
+@mixin link-font($color:"") {
+  font-family: $button-font;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  @if $color != "" {
+    color: $color;
+  }
+}

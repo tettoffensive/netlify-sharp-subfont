@@ -1,0 +1,575 @@
+// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/print';
+
+@import '~bootstrap-vue/src/index.scss';
+@import 'mixins/_fluid.scss';
+
+@include dark-mode {
+  .shadow-sm { box-shadow: $box-shadow-sm-dark !important; }
+  .shadow { box-shadow: $box-shadow-dark !important; }
+  .shadow-lg { box-shadow: $box-shadow-lg-dark !important; }
+}
+
+/* fade image in after load */
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 333ms ease;
+}
+
+img.lazyload:not([src]) {
+	visibility: hidden;
+}
+
+img[data-sizes="auto"] { display: block; width: 100%; }
+
+@mixin body-font-size {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+section.container-fluid, section.container {
+  padding-left: $spacer;
+  padding-right: $spacer;
+  @include media-breakpoint-up(sm) {
+    padding-left: $spacer * 2;
+    padding-right: $spacer * 2;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-left: $spacer;
+    padding-right: $spacer;
+  }
+}
+
+body {
+  @include body-font-size();
+  transition: background-color 750ms ease;
+}
+
+@include dark-mode {
+  body {
+    background-color: $primary-dark !important;
+    color: $white;
+  }
+}
+
+.btn.tag, .btn-sm.tag {
+  font-size: 1rem !important;
+}
+
+.btn-step.list-group-item {
+  border-radius: 0 !important;
+}
+
+.list-group-steps div:last-child button {
+  border-radius: 0em 0em $border-radius $border-radius !important;  
+}
+
+h1.header {
+  @include font-size(2.5rem);
+}
+
+h2 {
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+h2.readable {
+  color: $dark-text;
+  @include dark-mode {
+    color: $white !important;
+  }
+  transition: color 333ms ease;
+  max-width: 800px;
+}
+
+p.readable {
+  max-width: 700px;
+}
+
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+
+.button-arrow {
+  &:hover {
+    &:after {
+      transform: translateX(8px) scaleX(1);
+    }
+  }
+
+  &:after {
+    content: '→';
+    letter-spacing: 0px;
+    display: inline-block;
+    letter-spacing: 0px;
+    margin-left: 4px;
+    @include media-breakpoint-up(md) {
+      margin-left: 12px;
+    }
+    transition: transform 333ms ease;
+  }
+}
+
+.back-link-arrow {
+  @include font-size(1.125rem);
+  text-decoration: none !important;
+
+  &:hover {
+    &:after {
+      opacity: 0.8;
+      transform: scaleX(1);
+    }
+    &:before {
+      transform: translateX(-8px) scaleX(1);
+    }
+  }
+
+  position: relative;
+  &:after {
+    opacity: 0;
+    bottom: 0;
+    left: 2rem;
+    right: 0;
+    content: " ";
+    position: absolute;
+    height: 1px;
+    background-color: $primary;
+    transition: opacity 333ms ease, transform 333ms ease;
+    transform-origin: left top;
+    transform: scaleX(0);
+  }
+
+  &:before {
+    content: '←';
+    font-weight: 600;
+    letter-spacing: 0px;
+    display: inline-block;
+    letter-spacing: 0px;
+    margin-right: 4px;
+    @include media-breakpoint-up(md) {
+      margin-right: 12px;
+    }
+    transition: transform 333ms ease;
+  }
+}
+
+.link-arrow {
+  @include font-size(1.125rem);
+  text-decoration: none !important;
+
+  &:hover {
+    &:before {
+      opacity: 0.8;
+      transform: scaleX(1);
+    }
+    &:after {
+      transform: translateX(8px) scaleX(1);
+    }
+  }
+
+  position: relative;
+  &:before {
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    right: 2rem;
+    content: " ";
+    position: absolute;
+    height: 1px;
+    background-color: $primary;
+    transition: opacity 333ms ease, transform 333ms ease;
+    transform-origin: left top;
+    transform: scaleX(0);
+  }
+
+  &:after {
+    content: '→';
+    font-weight: 600;
+    letter-spacing: 0px;
+    display: inline-block;
+    letter-spacing: 0px;
+    margin-left: 4px;
+    @include media-breakpoint-up(md) {
+      margin-left: 0.6em;
+    }
+    transition: transform 333ms ease;
+  }
+}
+
+small, .font_small { @include font-size(0.99rem); }
+
+h3 + h4 {
+  margin-top: -$spacer * 0.25;
+  font-weight: 400 !important;
+  @include body-font-size();
+  color: $middle-text;
+  @include dark-mode {
+    color: $light-text-dark-mode;
+  }
+}
+
+h2.text-subtitle {
+  font-family: $body-font !important;
+  line-height: 1.5;
+  @include body-font-size();
+  max-width: 60ch;
+  margin-top: -$spacer * 0.25;
+  color: $middle-text !important;
+  @include dark-mode {
+    color: $light-text-dark-mode !important;
+  }
+  font-weight: 400 !important;
+}
+
+.text-subtitle, .content p {
+  color: $middle-text;
+  @include dark-mode {
+    color: $light-text-dark-mode;
+    &.always-dark {
+      color: $middle-text;
+    }
+  }
+}
+
+.text-white .text-subtitle {
+  color: $light-text;
+  @include dark-mode {
+    color: $light-text-dark-mode;
+  }
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button {
+
+  & .arrow {
+    transform: translateX(8px) scaleX(1);
+  }
+  & .back-arrow {
+    transform: translateX(-8px) scaleX(1);
+  }
+
+  &:hover {
+    & .arrow {
+      transform: translateX(8px) scaleX(1);
+    }
+    & .back-arrow {
+      transform: translateX(-8px) scaleX(1);
+    }
+  }
+}
+
+p a {
+  font-family: $body-font;
+  letter-spacing: 0px;
+  font-weight: bold;
+}
+
+a {
+
+  &:hover {
+    & .arrow {
+      transform: translateX(8px) scaleX(1);
+      text-decoration: none !important;
+    }
+    & .back-arrow {
+      transform: translateX(-8px) scaleX(1);
+      text-decoration: none !important;
+    }
+    & span {
+      text-decoration: none !important;
+    }
+  }
+
+  &:not(.btn) {
+
+    text-decoration: none;
+    color: $primary;
+    // font-weight: 500;
+
+    &:hover, &:visited, &:focus, &:active, &.nuxt-link-active {
+      text-decoration: none;
+      color: $primary;
+    }
+
+    // Underlines avoiding extra arrow -> on links
+    & > span:first-child {
+      position: relative;
+      &:after {
+        opacity: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: " ";
+        position: absolute;
+        height: 1px;
+        background-color: $primary;
+        transition: opacity 333ms ease;
+      }
+    }
+
+    &:hover {
+      & > span:first-child {
+        &:after {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.btn, .button-font {
+  @include button-font;
+  @include font-size(1.125rem);
+  line-height: 1em;
+
+  & b, & i , & ul, & li {
+    font-family: inherit;
+  }
+}
+
+.btn .nav-link {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  // cursor: default; // It's recommended for button UX, but might be confusing I think.
+}
+
+.navbar-light .navbar-nav :not(.btn) > .nav-link {
+  transition: color 333ms ease;
+  &:hover, &:focus, &.nuxt-link-active {
+    color: $primary;
+  }
+}
+
+.navbar-light .navbar-nav .btn-primary > .nav-link {
+  color: white !important;
+}
+
+.navbar-dark .navbar-nav .btn-primary > .nav-link {
+  color: white !important;
+}
+
+/* Hidden placeholder */
+select option[disabled]:first-child {
+  display: none;
+}
+
+blockquote {
+  font-style: italic;
+  @include font-size(1.5rem);
+}
+
+.ligature {
+  letter-spacing: 0px;
+}
+
+.arrow {
+  display: inline-block;
+  letter-spacing: 0px;
+  margin-left: 12px;
+  transition: transform 333ms ease;
+}
+
+.back-arrow {
+  display: inline-block;
+  margin-right: 12px;
+  transition: transform 333ms ease;
+}
+
+input,
+select,
+button {
+  @include button-font;
+}
+
+a {
+  @include link-font;
+}
+
+input[type="text"]:focus, select:focus {
+  outline: 0px solid $secondary;
+}
+
+input[type="radio"] {
+  &:focus, &:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-lg {
+  border-radius: $border-radius;
+}
+
+body {
+  background-color: $background;
+}
+
+.custom-checkbox .custom-control-label::before {
+  border-radius: 50%;
+  top: -0.05rem;
+  left: -2.5rem;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid $primary;
+}
+.custom-checkbox .custom-control-label::after {
+  border-radius: 50%;
+  top: -0.05rem;
+  left: -2.5rem;
+  width: 2rem;
+  height: 2rem;
+}
+.custom-checkbox .custom-control-label {
+  padding-left: $spacer * 0.25;
+}
+
+.drop-style ul {
+  list-style-type: none;
+  padding-left: 1.3rem;
+
+  & li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1rem;
+
+    &:before {
+      content: ' ';
+      display: inline-block;
+      position: absolute;
+      left: -1rem;
+      top: 0.4rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      background-color: $primary;
+      border-radius: 50% 50% 50% 0%;
+    }
+  }
+}
+
+.mr-xs  {
+  margin-right: 4px;
+}
+
+@each $color, $value in $theme-colors {
+  @each $breakpoint, $bpvalue in $grid-breakpoints {
+    .bg-#{$color}-#{$breakpoint} {
+      background-color: white;
+      @include media-breakpoint-up($breakpoint) {
+        background-color: $value !important;
+      }
+    }
+  }
+  .bg-#{$color}-prefers-color-scheme {
+    background-color: $value !important;
+    transition: background-color 750ms ease;
+    @include dark-mode {
+      background-color: $primary-dark !important;
+    }
+  }
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+
+  .#{$breakpoint}-shadow {
+    @include media-breakpoint-up($breakpoint) {
+      box-shadow: $box-shadow !important;
+    }
+  }
+
+  .#{$breakpoint}-shadow-sm {
+    @include media-breakpoint-up($breakpoint) {
+      box-shadow: $box-shadow-sm !important;
+    }
+  }
+
+  .#{$breakpoint}-shadow-lg {
+    @include media-breakpoint-up($breakpoint) {
+      box-shadow: $box-shadow-lg !important;
+    }
+  }
+
+}
+
+@include dark-mode {
+// White links against a dark background IN REVERSE FOR DARK MODE
+.navbar-light {
+  .navbar-brand {
+    color: $navbar-dark-brand-color;
+
+    @include hover-focus {
+      color: $navbar-dark-brand-hover-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-dark-color !important;
+
+      @include hover-focus {
+        color: $navbar-dark-hover-color !important;
+      }
+
+      &.disabled {
+        color: $navbar-dark-disabled-color !important;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $navbar-dark-active-color !important;
+    }
+  }
+
+  .navbar-text {
+    color: $navbar-dark-color;
+    a {
+      color: $navbar-dark-active-color;
+
+      @include hover-focus {
+        color: $navbar-dark-active-color;
+      }
+    }
+  }
+}
+}
+
+.btn-light {
+  @include dark-mode {
+    background-color: $white !important;
+    opacity: 0.5;
+    transition: opacity 333ms ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

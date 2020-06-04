@@ -1,0 +1,77 @@
+$border-radius: 6px;
+$primary: #52B0F0; // Picton Blue
+$primary-dark: #102D52;
+$primary-extra-dark: #100F18;
+$secondary: #FEB674; // Macaroni and Cheese
+$custom-red: #D73838;
+$background: #fafbfc;
+$background-dark: #112e51;
+$warm-dark: #1d2023;
+$dark-text: #1d2023;
+$middle-text: #464a4c;
+$light-text:  #eef4f7;
+$light-text-dark-mode: #dae2e6;
+$middle-gray: #8a8a8a !default;
+$black:    #000 !default;
+$spacer: 32px;
+$enable-responsive-font-sizes: true;
+$danger: $custom-red;
+$active-color: scale-color($primary, $lightness: -20%);
+$navbar-light-color: $dark-text;
+$navbar-dark-color: #96A3B3;
+$font-family-serif: 'Georgia', 'Times New Roman', -apple-system-ui-serif, ui-serif, serif;
+$font-family-sans-serif: system-ui, -apple-system; // That's all we need now
+$form-control-background-color: #e8f0fe;
+$form-control-background-color-dark: $primary-extra-dark;
+
+$yiq-contrasted-threshold: 160; // 150 default; 
+
+$box-shadow-sm-dark:               0 .125rem .25rem rgba($black, .3) !default;
+$box-shadow-dark:                  0 .5rem 1rem rgba($black, .3) !default;
+$box-shadow-lg-dark:               0 1rem 3rem rgba($black, .3) !default;
+
+// This table defines the theme colors (variant names)
+$theme-colors: (
+  'middle-gray': $middle-gray,
+  'primary-dark': $primary-dark,
+  'dark': $dark-text,
+  'middle': $middle-text,
+  'light': $light-text,
+  'primary-muted': $light-text-dark-mode,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1228px,
+) !default;
+
+$container-max-widths: (
+  lg: 960px,
+  xl: 1140px,
+);
+
+$grid-gutter-width: 0px;
+
+$enable-responsive-font-sizes: true;
+$rfs-factor: 20;
+$rfs-breakpoint: 1440px;
+
+// https://type-scale.com/ Augmented 4th starting from h3
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$h1-font-size:                $font-size-base * 3.5 !default; // Reduced from 4x
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.25 !default;
+$h4-font-size:                $font-size-base !default;
+$h5-font-size:                $font-size-base !default;
+$h6-font-size:                $font-size-base !default;
+
+@import '~bootstrap/scss/_functions.scss';
+@import '~bootstrap/scss/_variables.scss';
+@import '~bootstrap/scss/_mixins.scss';
+
+@import 'mixins/_font.scss';
+@import 'mixins/_darkmode.scss';
