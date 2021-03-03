@@ -62,7 +62,7 @@
     "jest": "^25.3.0",
     "node-sass": "^4.13.0",
     "patch-package": "^6.2.0",
-    "pug": "2.0.4",
+    "pug": "3.0.1",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.0",
     "srcset-loader": "https://github.com/tettoffensive/srcset-loader.git#sharp-2.4",
