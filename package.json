@@ -28,7 +28,7 @@
     "bootstrap-vue": "^2.0.0",
     "lazysizes": "^5.2.0",
     "lodash": "^4.17.15",
-    "marked": "^0.8.2",
+    "marked": "^4.0.10",
     "nuxt": "^2.12.0",
     "nuxt-clipboard2": "^0.2.1",
     "nuxt-rfg-icon": "^0.6.4",
