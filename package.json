@@ -60,7 +60,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "jest": "^25.3.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "patch-package": "^6.2.0",
     "pug": "2.0.4",
     "pug-plain-loader": "^1.0.0",
